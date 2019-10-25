@@ -10,15 +10,24 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var loggedIn: Bool = false
+    @State var userID: Int = 0
     
     @ViewBuilder
     var body: some View {
-        if loggedIn {
-            return HomeScreen()
+        if userID != 0 {
+            HomeScreen(user: getUserWithId(id: userID))
         } else {
-            return LoginScreen()
+            LoginScreen(userID: $userID)
         }
+    }
+    
+    func getUserWithId(id: Int) -> User  {
+        for user in myDataBase.allUsers {
+            if (user.id == id) {
+                return user
+            }
+        }
+        return myDataBase.allUsers[0]
     }
 }
 

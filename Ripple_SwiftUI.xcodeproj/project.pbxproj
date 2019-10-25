@@ -76,11 +76,11 @@
 				A238B29C2362246A0061A50C /* SceneDelegate.swift */,
 				A238B29E2362246A0061A50C /* ContentView.swift */,
 				A2ABCD952362566A005D85C5 /* LoginScreen.swift */,
+				A2ABCD932362505B005D85C5 /* HomeScreen.swift */,
 				A238B2A02362246C0061A50C /* Assets.xcassets */,
 				A238B2A52362246C0061A50C /* LaunchScreen.storyboard */,
 				A238B2A82362246C0061A50C /* Info.plist */,
 				A238B2A22362246C0061A50C /* Preview Content */,
-				A2ABCD932362505B005D85C5 /* HomeScreen.swift */,
 				A2FA2B712363744600746596 /* Models */,
 			);
 			path = Ripple_SwiftUI;

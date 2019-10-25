@@ -9,13 +9,16 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    
+    let user: User
+    
     var body: some View {
-        Text("Hello Home Screen!")
+        Text("\(user.email!)")
     }
 }
 
 struct HomeScreen_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreen()
+        HomeScreen(user: myDataBase.allUsers[0])
     }
 }

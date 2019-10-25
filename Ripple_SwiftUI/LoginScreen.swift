@@ -13,6 +13,8 @@ struct LoginScreen: View {
     @State var username: String = ""
     @State var password: String = ""
     
+    @Binding var userID: Int
+    
     var body: some View {
         VStack {
             VStack {
@@ -22,7 +24,7 @@ struct LoginScreen: View {
             .frame(height: UIScreen.main.bounds.height/2)
             VStack(spacing: 5) {
 
-                TextField("Email or Phone Number", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                TextField("Email or Phone Number", text: $username)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(5)
                 .cornerRadius(30)
@@ -31,7 +33,7 @@ struct LoginScreen: View {
                     RoundedRectangle(cornerRadius: 8)
                     .stroke(Color.white, lineWidth: 2)
                 )
-                SecureField("Password", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                SecureField("Password", text: $password)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .foregroundColor(.black)
                 .padding(5)
@@ -42,7 +44,7 @@ struct LoginScreen: View {
                     .stroke(Color.white, lineWidth: 2)
                 )
                 Button(action: {
-                    print("FOO")
+                    self.userID = self.attemptLogin(str: self.username, pass: self.password)
                 }) {
                     Text("Login")
                 }
@@ -69,10 +71,21 @@ struct LoginScreen: View {
         .background(RadialGradient(gradient: Gradient(colors: [Color("RippleColorDark"), Color.black]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: /*@START_MENU_TOKEN@*/5/*@END_MENU_TOKEN@*/, endRadius: /*@START_MENU_TOKEN@*/500/*@END_MENU_TOKEN@*/))
         .edgesIgnoringSafeArea(.all)
     }
-}
-
-struct LoginScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginScreen()
+    
+    func attemptLogin(str: String, pass: String) -> Int {
+        for user in myDataBase.allUsers {
+            if user.email == str && user.password == pass {
+                return user.id
+            } else if user.phoneNumber == str && user.password == pass {
+                return user.id
+            }
+        }
+        return 0
     }
 }
+
+//struct LoginScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoginScreen()
+//    }
+//}

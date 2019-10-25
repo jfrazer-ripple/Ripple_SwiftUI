@@ -130,6 +130,7 @@ class User {
         print("followers: ", terminator:"")
         print(followers)
     }
+    
 }
 
 func getUserWithUserNameAndPassword(phoneNumber: String?, password: String?) -> User?  {
@@ -139,17 +140,6 @@ func getUserWithUserNameAndPassword(phoneNumber: String?, password: String?) -> 
     
     for user in myDataBase.allUsers {
         if (user.phoneNumber == phoneNumber && user.password == password) || (user.email == phoneNumber && user.password == password) {
-            return user
-        }
-    }
-    
-    return nil
-}
-
-func getUserWithId(id: Int) -> User?  {
-    
-    for user in myDataBase.allUsers {
-        if (user.id == id) {
             return user
         }
     }
