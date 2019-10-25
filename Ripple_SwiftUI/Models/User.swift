@@ -16,6 +16,7 @@ class User {
     var id: Int
     var firstName: String
     var lastName: String
+    var username: String
     var email: String?
     var phoneNumber: String?
     
@@ -55,11 +56,12 @@ class User {
     var causes: [Int]
     var primaryCause: Int
     
-    init(id: Int, firstName: String, lastName: String, phoneNumber: String, email: String, password: String, birthday: String, primaryCause: Int, profilePhoto: UIImage?) {
+    init(id: Int, firstName: String, lastName: String, username: String, phoneNumber: String, email: String, password: String, birthday: String, primaryCause: Int, profilePhoto: UIImage?) {
         
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
+        self.username = username
         self.phoneNumber = phoneNumber
         self.email = email
         self.password = password

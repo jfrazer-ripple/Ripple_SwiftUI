@@ -24,7 +24,7 @@ struct LoginScreen: View {
             .frame(height: UIScreen.main.bounds.height/2)
             VStack(spacing: 5) {
 
-                TextField("Email or Phone Number", text: $username)
+                TextField("Email or Username", text: $username)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding(5)
                 .cornerRadius(30)
@@ -44,7 +44,12 @@ struct LoginScreen: View {
                     .stroke(Color.white, lineWidth: 2)
                 )
                 Button(action: {
-                    self.userID = self.attemptLogin(str: self.username, pass: self.password)
+                    let loginAttempt = self.attemptLogin(str: self.username, pass: self.password)
+                    if  loginAttempt != 0 { //Successful Login
+                        self.userID = loginAttempt
+                    }
+                    
+                    
                 }) {
                     Text("Login")
                 }
@@ -72,15 +77,23 @@ struct LoginScreen: View {
         .edgesIgnoringSafeArea(.all)
     }
     
+    /*
+     This function will attempt to login to the app given a username or email and a password
+        - Returning 0 means the username/email exists, but the password was incorrect
+        - Returning -1 means the username/email does not exist
+    */
     func attemptLogin(str: String, pass: String) -> Int {
+        
         for user in myDataBase.allUsers {
-            if user.email == str && user.password == pass {
-                return user.id
-            } else if user.phoneNumber == str && user.password == pass {
-                return user.id
+            if user.email == str || user.username == str { //we found an entry for given email/username
+                if user.password == pass { //Passwords match, allow user to login
+                    return user.id
+                } else { //Passwords do NOT match, reject the login
+                    return 0
+                }
             }
         }
-        return 0
+        return -1 //Unable to find the user with the given username/email, return 0
     }
 }
 
