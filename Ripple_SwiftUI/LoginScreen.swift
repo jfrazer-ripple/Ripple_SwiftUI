@@ -8,12 +8,16 @@
 
 import SwiftUI
 
+enum ActiveAlert {
+    case emailOrUsername, password
+}
+
 struct LoginScreen: View {
     
     @State private var passwordStatus = 0
     @State private var usernameOrEmailStatus = 0
-    @State private var showingEmailOrUsernameAlert = false
-    @State private var showingPasswordAlert = false
+    @State private var showingAlert = false
+    @State private var activeAlert: ActiveAlert = .emailOrUsername
     
     @State var emailOrUsername: String = ""
     @State var password: String = ""
@@ -47,11 +51,13 @@ struct LoginScreen: View {
                     if loginAttempt == 0 { // username/email exists, but the password was incorrect
                         self.usernameOrEmailStatus = 2
                         self.passwordStatus = 1
-                        self.showingPasswordAlert.toggle()
+                        self.activeAlert = .password
+                        self.showingAlert.toggle()
                     } else if loginAttempt == -1 { // unable to find the user given the email/username
                         self.usernameOrEmailStatus = 1
                         self.passwordStatus = 0
-                        self.showingEmailOrUsernameAlert.toggle()
+                        self.activeAlert = .emailOrUsername
+                        self.showingAlert.toggle()
                     } else {
                         self.usernameOrEmailStatus = 2
                         self.passwordStatus = 2
@@ -59,9 +65,6 @@ struct LoginScreen: View {
                     }
                 }) {
                     Text("Login")
-                }
-                .alert(isPresented: $showingPasswordAlert) {
-                    Alert(title: Text("Invalid Password"), message: Text("The password you entered is incorrect"), dismissButton: .default(Text("Try Again")))
                 }
                 .foregroundColor(.white)
                 .padding(5)
@@ -80,13 +83,18 @@ struct LoginScreen: View {
                     .foregroundColor(.white)
                     .padding()
                 Spacer()
-                }
+            }
             .padding(.horizontal, 20)
         }
-        .background(RadialGradient(gradient: Gradient(colors: [Color("RippleColorDark"), Color.black]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: /*@START_MENU_TOKEN@*/5/*@END_MENU_TOKEN@*/, endRadius: /*@START_MENU_TOKEN@*/500/*@END_MENU_TOKEN@*/))
+        .background(RadialGradient(gradient: Gradient(colors: [Color("RippleColorDark"), Color.black]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: /*@START_MENU_TOKEN@*/5/*@END_MENU_TOKEN@*/, endRadius: 300))
         .edgesIgnoringSafeArea(.all)
-        .alert(isPresented: $showingEmailOrUsernameAlert) {
-            Alert(title: Text("Invalid Username or Email"), message: Text("The email or username you entered isn't in our system"), dismissButton: .default(Text("Try Again")))
+        .alert(isPresented: $showingAlert) {
+            switch activeAlert {
+            case .emailOrUsername:
+                return Alert(title: Text("Invalid Username or Email"), message: Text("The email or username you entered isn't in our system"), dismissButton: .default(Text("Try Again")))
+            case .password:
+                return Alert(title: Text("Invalid Password"), message: Text("The password you entered is incorrect"), dismissButton: .default(Text("Try Again")))
+            }
         }
     }
     
