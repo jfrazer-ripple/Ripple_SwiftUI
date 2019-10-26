@@ -12,6 +12,8 @@ struct LoginScreen: View {
     
     @State private var passwordStatus = 0
     @State private var usernameOrEmailStatus = 0
+    @State private var showingEmailOrUsernameAlert = false
+    @State private var showingPasswordAlert = false
     
     @State var emailOrUsername: String = ""
     @State var password: String = ""
@@ -39,24 +41,27 @@ struct LoginScreen: View {
                     SecureFieldWithColoredBorder(color: .red, password: $password)
                 }  else if passwordStatus == 2 { //User has a valid email/username with the corresponding password
                     SecureFieldWithColoredBorder(color: .green, password: $password)
-                }
+                } 
                 Button(action: {
                     let loginAttempt = self.attemptLogin(str: self.emailOrUsername, pass: self.password)
                     if loginAttempt == 0 { // username/email exists, but the password was incorrect
                         self.usernameOrEmailStatus = 2
                         self.passwordStatus = 1
+                        self.showingPasswordAlert.toggle()
                     } else if loginAttempt == -1 { // unable to find the user given the email/username
                         self.usernameOrEmailStatus = 1
                         self.passwordStatus = 0
+                        self.showingEmailOrUsernameAlert.toggle()
                     } else {
                         self.usernameOrEmailStatus = 2
                         self.passwordStatus = 2
                         self.userID = loginAttempt
                     }
-                    
-                    
                 }) {
                     Text("Login")
+                }
+                .alert(isPresented: $showingPasswordAlert) {
+                    Alert(title: Text("Invalid Password"), message: Text("The password you entered is incorrect"), dismissButton: .default(Text("Try Again")))
                 }
                 .foregroundColor(.white)
                 .padding(5)
@@ -80,6 +85,9 @@ struct LoginScreen: View {
         }
         .background(RadialGradient(gradient: Gradient(colors: [Color("RippleColorDark"), Color.black]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: /*@START_MENU_TOKEN@*/5/*@END_MENU_TOKEN@*/, endRadius: /*@START_MENU_TOKEN@*/500/*@END_MENU_TOKEN@*/))
         .edgesIgnoringSafeArea(.all)
+        .alert(isPresented: $showingEmailOrUsernameAlert) {
+            Alert(title: Text("Invalid Username or Email"), message: Text("The email or username you entered isn't in our system"), dismissButton: .default(Text("Try Again")))
+        }
     }
     
     /*
