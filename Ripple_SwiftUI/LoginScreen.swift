@@ -10,10 +10,11 @@ import SwiftUI
 
 struct LoginScreen: View {
     
-    @State private var username: String = ""
-    @State private var password: String = ""
     @State private var passwordStatus = 0
     @State private var usernameOrEmailStatus = 0
+    
+    @State var emailOrUsername: String = ""
+    @State var password: String = ""
     
     @Binding var userID: Int
     
@@ -26,81 +27,31 @@ struct LoginScreen: View {
             .frame(height: UIScreen.main.bounds.height/2)
             VStack(spacing: 5) {
                 if usernameOrEmailStatus == 0 { //Default value, user hasn't attempted to log in
-                    TextField("Email or Username", text: $username)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(5)
-                        .cornerRadius(30)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.white, lineWidth: 2)
-                        )
+                    TextFieldWithColoredBorder(color: .white, emailOrUsername: $emailOrUsername)
                 } else if usernameOrEmailStatus == 1 { //User attempted to login, but the email/username was not found
-                    TextField("Email or Username", text: $username)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(5)
-                        .cornerRadius(30)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.red, lineWidth: 2)
-                        )
+                    TextFieldWithColoredBorder(color: .red, emailOrUsername: $emailOrUsername)
                 }  else if usernameOrEmailStatus == 2 { //User has a valid email/username
-                    TextField("Email or Username", text: $username)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(5)
-                        .cornerRadius(30)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.green, lineWidth: 2)
-                        )
+                    TextFieldWithColoredBorder(color: .green, emailOrUsername: $emailOrUsername)
                 }
                 if passwordStatus == 0 { //Default value, user hasn't attempted to log in
-                    SecureField("Password", text: $password)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(5)
-                        .cornerRadius(30)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.white, lineWidth: 2)
-                        )
+                    SecureFieldWithColoredBorder(color: .white, password: $password)
                 } else if passwordStatus == 1 { //User attempted to login, but the password was not correct
-                    SecureField("Password", text: $password)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(5)
-                        .cornerRadius(30)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                            .stroke(Color.red, lineWidth: 2)
-                        )
+                    SecureFieldWithColoredBorder(color: .red, password: $password)
                 }  else if passwordStatus == 2 { //User has a valid email/username with the corresponding password
-                    SecureField("Password", text: $password)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding(5)
-                        .cornerRadius(30)
-                        .frame(minWidth: 0, maxWidth: .infinity)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.green, lineWidth: 2)
-                        )
+                    SecureFieldWithColoredBorder(color: .green, password: $password)
                 }
                 Button(action: {
-                    let loginAttempt = self.attemptLogin(str: self.username, pass: self.password)
+                    let loginAttempt = self.attemptLogin(str: self.emailOrUsername, pass: self.password)
                     if loginAttempt == 0 { // username/email exists, but the password was incorrect
-                        print("Invalid password")
                         self.usernameOrEmailStatus = 2
                         self.passwordStatus = 1
                     } else if loginAttempt == -1 { // unable to find the user given the email/username
-                        print("unkown username/email")
                         self.usernameOrEmailStatus = 1
                         self.passwordStatus = 0
                     } else {
-                        //self.userID = loginAttempt
                         self.usernameOrEmailStatus = 2
                         self.passwordStatus = 2
+                        self.userID = loginAttempt
                     }
                     
                     
