@@ -17,8 +17,7 @@ struct SecureFieldWithColoredBorder: View {
     var body: some View {
         SecureField("Password", text: $password)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-            .padding(5)
-            .cornerRadius(30)
+            .padding(3)
             .frame(minWidth: 0, maxWidth: .infinity)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
@@ -27,8 +26,8 @@ struct SecureFieldWithColoredBorder: View {
     }
 }
 
-//struct SecureFieldWithColoredBorder_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SecureFieldWithColoredBorder(color: .black)
-//    }
-//}
+struct SecureFieldWithColoredBorder_Previews: PreviewProvider {
+    static var previews: some View {
+        SecureFieldWithColoredBorder(color: .black, password: .constant(""))
+    }
+}

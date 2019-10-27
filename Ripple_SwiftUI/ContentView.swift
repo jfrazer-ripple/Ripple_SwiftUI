@@ -31,14 +31,8 @@ struct ContentView: View {
     }
 }
 
-struct DetailView: View {
-    var body: some View {
-        Text("This is the detail view")
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView(userID: 0)
+//    }
+//}

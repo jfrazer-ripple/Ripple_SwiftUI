@@ -11,15 +11,14 @@ import SwiftUI
 struct TextFieldWithColoredBorder: View {
     
     var color: Color
+    var placeholderText: String
     
     @Binding var emailOrUsername: String 
     
     var body: some View {
-        TextField("Email or Username", text: $emailOrUsername)
+        TextField(placeholderText, text: $emailOrUsername)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-            .padding(5)
-            .cornerRadius(30)
-            .frame(minWidth: 0, maxWidth: .infinity)
+            .padding(3)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
                 .stroke(color, lineWidth: 2)
@@ -27,8 +26,10 @@ struct TextFieldWithColoredBorder: View {
     }
 }
 
-//struct TextFieldWithColoredBorder_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TextFieldWithColoredBorder(color: .black, emailOrUsername: emailOrUsername)
-//    }
-//}
+#if DEBUG
+struct TextFieldWithColoredBorder_Previews: PreviewProvider {
+    static var previews: some View {
+        TextFieldWithColoredBorder(color: .black, placeholderText: "", emailOrUsername: .constant(""))
+    }
+}
+#endif
