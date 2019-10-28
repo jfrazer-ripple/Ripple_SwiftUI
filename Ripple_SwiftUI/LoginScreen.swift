@@ -37,15 +37,15 @@ struct LoginScreen: View {
                         TextFieldWithColoredBorder(color: .white, placeholderText: "Email or Username", emailOrUsername: $emailOrUsername)
                     } else if usernameOrEmailStatus == 1 { //User attempted to login, but the email/username was not found
                         TextFieldWithColoredBorder(color: .red, placeholderText: "Email or Username", emailOrUsername: $emailOrUsername)
-                    }  else if usernameOrEmailStatus == 2 { //User has a valid email/username
+                    }  else { //User has a valid email/username
                         TextFieldWithColoredBorder(color: .green, placeholderText: "Email or Username", emailOrUsername: $emailOrUsername)
                     }
                     if passwordStatus == 0 { //Default value, user hasn't attempted to log in
-                        SecureFieldWithColoredBorder(color: .white, password: $password)
+                        SecureFieldWithColoredBorder(color: .white, placeholderText: "Password", password: $password)
                     } else if passwordStatus == 1 { //User attempted to login, but the password was not correct
-                        SecureFieldWithColoredBorder(color: .red, password: $password)
-                    }  else if passwordStatus == 2 { //User has a valid email/username with the corresponding password
-                        SecureFieldWithColoredBorder(color: .green, password: $password)
+                        SecureFieldWithColoredBorder(color: .red, placeholderText: "Password", password: $password)
+                    }  else { //User has a valid email/username with the corresponding password
+                        SecureFieldWithColoredBorder(color: .green, placeholderText: "Password", password: $password)
                     }
                     Button(action: {
                         let loginAttempt = self.attemptLogin(str: self.emailOrUsername, pass: self.password)
@@ -89,7 +89,7 @@ struct LoginScreen: View {
                 }
                 .padding(.horizontal, 20)
             }
-            .background(RadialGradient(gradient: Gradient(colors: [Color("RippleColorDark"), Color.black]), center: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, startRadius: /*@START_MENU_TOKEN@*/5/*@END_MENU_TOKEN@*/, endRadius: 300))
+            .background(RadialGradient(gradient: Gradient(colors: [Color("RippleColorDark"), Color.black]), center: .center, startRadius: 5, endRadius: 300))
             .edgesIgnoringSafeArea(.all)
             .alert(isPresented: $showingAlert) {
                 switch activeAlert {

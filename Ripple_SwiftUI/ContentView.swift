@@ -11,13 +11,20 @@ import SwiftUI
 struct ContentView: View {
     
     @State var userID: Int = 0
+    @State var screenToPresent: Int = 0
     
     @ViewBuilder
     var body: some View {
-        if userID != 0 {
-            HomeScreen(user: getUserWithId(id: userID))
+        if userID != 0 { // User has logged in
+            LoggedIn(user: getUserWithId(id: userID))
         } else {
-            LoginScreen(userID: $userID)
+            if screenToPresent == 0 { // Default Login Screen
+                LoginScreen(userID: $userID)
+            } else if screenToPresent == 1 { // Account Creation Flow
+                LoginScreen(userID: $userID)
+            } else { // Forgot Password Flow
+                LoginScreen(userID: $userID)
+            }
         }
     }
     

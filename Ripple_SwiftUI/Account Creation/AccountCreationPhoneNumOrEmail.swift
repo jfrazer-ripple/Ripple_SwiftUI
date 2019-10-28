@@ -100,6 +100,7 @@ struct AccountCreationPhoneNumOrEmail: View {
         .background(RadialGradient(gradient: Gradient(colors: [Color("RippleColorDark"), Color.black]), center: .center, startRadius: 5, endRadius: 300))
         .edgesIgnoringSafeArea(.all)
         .navigationBarTitle("Create Account", displayMode: .inline)
+        .navigationBarBackButtonHidden(true)
         .alert(isPresented: $showingAlert) {
             switch activeAlert {
             case .email:
@@ -133,10 +134,8 @@ struct AccountCreationPhoneNumOrEmail: View {
         let phoneTest = NSPredicate(format: "SELF MATCHES %@", PHONE_REGEX)
         let result =  phoneTest.evaluate(with: phoneStr)
         if result {
-            print("True phone Number")
             return 1
         } else {
-            print("false phone number")
             return -1
         }
     }

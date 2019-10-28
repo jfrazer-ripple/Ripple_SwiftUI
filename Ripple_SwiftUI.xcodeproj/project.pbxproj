@@ -20,8 +20,17 @@
 		A238B2A42362246C0061A50C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A238B2A32362246C0061A50C /* Preview Assets.xcassets */; };
 		A238B2A72362246C0061A50C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A238B2A52362246C0061A50C /* LaunchScreen.storyboard */; };
 		A25236CA23654B39006AFB9A /* AccountCreationBirthday.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236C923654B39006AFB9A /* AccountCreationBirthday.swift */; };
+		A25236CC23662FB7006AFB9A /* AccountCreationPasswordCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236CB23662FB7006AFB9A /* AccountCreationPasswordCreation.swift */; };
+		A25236CE23664128006AFB9A /* AccountCreationAccountConfirmation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236CD23664128006AFB9A /* AccountCreationAccountConfirmation.swift */; };
+		A25236D223677C8F006AFB9A /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236D123677C8F006AFB9A /* NavigationController.swift */; };
+		A25236D523677E07006AFB9A /* NewsFeedTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236D423677E07006AFB9A /* NewsFeedTab.swift */; };
+		A25236D723677E50006AFB9A /* VolunteerTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236D623677E50006AFB9A /* VolunteerTab.swift */; };
+		A25236D923677E6F006AFB9A /* RippleTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236D823677E6F006AFB9A /* RippleTab.swift */; };
+		A25236DB23677F63006AFB9A /* RankingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236DA23677F63006AFB9A /* RankingsTab.swift */; };
+		A25236DD23677F87006AFB9A /* MyAccountTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236DC23677F87006AFB9A /* MyAccountTab.swift */; };
+		A25236DF2367989A006AFB9A /* HorizontalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236DE2367989A006AFB9A /* HorizontalLine.swift */; };
 		A2674E882364F3E200E2316E /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2674E872364F3E200E2316E /* ContinueButton.swift */; };
-		A2ABCD942362505B005D85C5 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABCD932362505B005D85C5 /* HomeScreen.swift */; };
+		A2ABCD942362505B005D85C5 /* LoggedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABCD932362505B005D85C5 /* LoggedIn.swift */; };
 		A2ABCD962362566A005D85C5 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABCD952362566A005D85C5 /* LoginScreen.swift */; };
 		A2FA2B6623636E9900746596 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FA2B6523636E9900746596 /* User.swift */; };
 		A2FA2B68236370FA00746596 /* MyDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2FA2B67236370FA00746596 /* MyDatabase.swift */; };
@@ -47,8 +56,17 @@
 		A238B2A62362246C0061A50C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A238B2A82362246C0061A50C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A25236C923654B39006AFB9A /* AccountCreationBirthday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreationBirthday.swift; sourceTree = "<group>"; };
+		A25236CB23662FB7006AFB9A /* AccountCreationPasswordCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreationPasswordCreation.swift; sourceTree = "<group>"; };
+		A25236CD23664128006AFB9A /* AccountCreationAccountConfirmation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreationAccountConfirmation.swift; sourceTree = "<group>"; };
+		A25236D123677C8F006AFB9A /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		A25236D423677E07006AFB9A /* NewsFeedTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTab.swift; sourceTree = "<group>"; };
+		A25236D623677E50006AFB9A /* VolunteerTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerTab.swift; sourceTree = "<group>"; };
+		A25236D823677E6F006AFB9A /* RippleTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RippleTab.swift; sourceTree = "<group>"; };
+		A25236DA23677F63006AFB9A /* RankingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsTab.swift; sourceTree = "<group>"; };
+		A25236DC23677F87006AFB9A /* MyAccountTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountTab.swift; sourceTree = "<group>"; };
+		A25236DE2367989A006AFB9A /* HorizontalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLine.swift; sourceTree = "<group>"; };
 		A2674E872364F3E200E2316E /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
-		A2ABCD932362505B005D85C5 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		A2ABCD932362505B005D85C5 /* LoggedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedIn.swift; sourceTree = "<group>"; };
 		A2ABCD952362566A005D85C5 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		A2FA2B6523636E9900746596 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		A2FA2B67236370FA00746596 /* MyDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDatabase.swift; sourceTree = "<group>"; };
@@ -76,6 +94,8 @@
 				A21FA1752364C1080053FF01 /* AccountCreationPhoneNumOrEmail.swift */,
 				A21FA1772364CA9F0053FF01 /* AccountCreationName.swift */,
 				A25236C923654B39006AFB9A /* AccountCreationBirthday.swift */,
+				A25236CB23662FB7006AFB9A /* AccountCreationPasswordCreation.swift */,
+				A25236CD23664128006AFB9A /* AccountCreationAccountConfirmation.swift */,
 			);
 			path = "Account Creation";
 			sourceTree = "<group>";
@@ -99,12 +119,14 @@
 		A238B2992362246A0061A50C /* Ripple_SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				A25236D323677DE1006AFB9A /* Tabs */,
 				A238B29A2362246A0061A50C /* AppDelegate.swift */,
 				A238B29C2362246A0061A50C /* SceneDelegate.swift */,
+				A25236D123677C8F006AFB9A /* NavigationController.swift */,
 				A238B29E2362246A0061A50C /* ContentView.swift */,
 				A2ABCD952362566A005D85C5 /* LoginScreen.swift */,
+				A2ABCD932362505B005D85C5 /* LoggedIn.swift */,
 				A2674E892364F3F500E2316E /* Custom Objects */,
-				A2ABCD932362505B005D85C5 /* HomeScreen.swift */,
 				A21FA1742364BE4C0053FF01 /* Account Creation */,
 				A21FA16E236406610053FF01 /* ForgotPassword.swift */,
 				A238B2A02362246C0061A50C /* Assets.xcassets */,
@@ -124,9 +146,22 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		A25236D323677DE1006AFB9A /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				A25236D423677E07006AFB9A /* NewsFeedTab.swift */,
+				A25236D623677E50006AFB9A /* VolunteerTab.swift */,
+				A25236D823677E6F006AFB9A /* RippleTab.swift */,
+				A25236DA23677F63006AFB9A /* RankingsTab.swift */,
+				A25236DC23677F87006AFB9A /* MyAccountTab.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 		A2674E892364F3F500E2316E /* Custom Objects */ = {
 			isa = PBXGroup;
 			children = (
+				A25236DE2367989A006AFB9A /* HorizontalLine.swift */,
 				A21FA1682363EBBF0053FF01 /* TextFieldWithColoredBorder.swift */,
 				A21FA16A2363ECDC0053FF01 /* SecureFieldWithColoredBorder.swift */,
 				A2674E872364F3E200E2316E /* ContinueButton.swift */,
@@ -218,23 +253,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A25236D723677E50006AFB9A /* VolunteerTab.swift in Sources */,
 				A2FA2B70236373F500746596 /* Mission.swift in Sources */,
-				A2ABCD942362505B005D85C5 /* HomeScreen.swift in Sources */,
+				A2ABCD942362505B005D85C5 /* LoggedIn.swift in Sources */,
 				A2FA2B6623636E9900746596 /* User.swift in Sources */,
 				A238B29B2362246A0061A50C /* AppDelegate.swift in Sources */,
+				A25236CE23664128006AFB9A /* AccountCreationAccountConfirmation.swift in Sources */,
 				A2FA2B68236370FA00746596 /* MyDatabase.swift in Sources */,
 				A2FA2B6A2363710D00746596 /* Charity.swift in Sources */,
+				A25236DB23677F63006AFB9A /* RankingsTab.swift in Sources */,
+				A25236D923677E6F006AFB9A /* RippleTab.swift in Sources */,
+				A25236CC23662FB7006AFB9A /* AccountCreationPasswordCreation.swift in Sources */,
 				A2674E882364F3E200E2316E /* ContinueButton.swift in Sources */,
 				A21FA1782364CA9F0053FF01 /* AccountCreationName.swift in Sources */,
 				A21FA16B2363ECDC0053FF01 /* SecureFieldWithColoredBorder.swift in Sources */,
+				A25236D223677C8F006AFB9A /* NavigationController.swift in Sources */,
 				A238B29D2362246A0061A50C /* SceneDelegate.swift in Sources */,
+				A25236D523677E07006AFB9A /* NewsFeedTab.swift in Sources */,
 				A21FA1762364C1080053FF01 /* AccountCreationPhoneNumOrEmail.swift in Sources */,
 				A2FA2B6C236371B100746596 /* Business.swift in Sources */,
 				A21FA1692363EBBF0053FF01 /* TextFieldWithColoredBorder.swift in Sources */,
 				A25236CA23654B39006AFB9A /* AccountCreationBirthday.swift in Sources */,
+				A25236DF2367989A006AFB9A /* HorizontalLine.swift in Sources */,
 				A238B29F2362246A0061A50C /* ContentView.swift in Sources */,
 				A21FA16D2364059C0053FF01 /* CreateAccountTermsAndConditions.swift in Sources */,
 				A2ABCD962362566A005D85C5 /* LoginScreen.swift in Sources */,
+				A25236DD23677F87006AFB9A /* MyAccountTab.swift in Sources */,
 				A2FA2B6E236373B400746596 /* Post.swift in Sources */,
 				A21FA16F236406610053FF01 /* ForgotPassword.swift in Sources */,
 			);

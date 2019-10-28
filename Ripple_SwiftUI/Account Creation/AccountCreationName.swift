@@ -82,6 +82,7 @@ struct AccountCreationName: View {
         .background(RadialGradient(gradient: Gradient(colors: [Color("RippleColorDark"), Color.black]), center: .center, startRadius: 5, endRadius: 300))
         .edgesIgnoringSafeArea(.all)
         .navigationBarTitle("Create Account", displayMode: .inline)
+        .navigationBarBackButtonHidden(true)
         .alert(isPresented: $showingAlert) {
             switch activeAlert {
             case .first:

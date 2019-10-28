@@ -11,11 +11,12 @@ import SwiftUI
 struct SecureFieldWithColoredBorder: View {
     
     var color: Color
+    var placeholderText: String
     
     @Binding var password: String
     
     var body: some View {
-        SecureField("Password", text: $password)
+        SecureField(placeholderText, text: $password)
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding(3)
             .frame(minWidth: 0, maxWidth: .infinity)
@@ -28,6 +29,6 @@ struct SecureFieldWithColoredBorder: View {
 
 struct SecureFieldWithColoredBorder_Previews: PreviewProvider {
     static var previews: some View {
-        SecureFieldWithColoredBorder(color: .black, password: .constant(""))
+        SecureFieldWithColoredBorder(color: .black, placeholderText: "Password", password: .constant(""))
     }
 }

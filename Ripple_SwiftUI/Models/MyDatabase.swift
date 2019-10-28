@@ -226,7 +226,7 @@ class myDataBase {
     ]
     
     static var allUsers = [
-        User(id: 1, firstName: "Justin", lastName: "Frazer", username: "jfrazer", phoneNumber: "720-939-6936",email: "jfrazer@gmail.com", password: "", birthday: "10-06-1992", primaryCause: 0, profilePhoto: UIImage(named: "justinfrazer")),
+        User(id: 1, firstName: "Justin", lastName: "Frazer", username: "", phoneNumber: "720-939-6936",email: "jfrazer@gmail.com", password: "", birthday: "10-06-1992", primaryCause: 0, profilePhoto: UIImage(named: "justinfrazer")),
         User(id: 2, firstName: "Kevin", lastName: "Frazer", username: "kevfrazer", phoneNumber: "720-666-1142",email: "kevinfrazer@gmail.com", password: "", birthday: "03-03-1960", primaryCause: 0, profilePhoto: UIImage(named: "kevinfrazer")),
         User(id: 3, firstName: "Kim", lastName: "Frazer", username: "kfrazer", phoneNumber: "720-939-6936",email: "kimfrazer@gmail.com", password: "", birthday: "12-23-1959", primaryCause: 0, profilePhoto: UIImage(named: "kimfrazer")),
         User(id: 4, firstName: "Cassie", lastName: "Frazer", username: "cfrazer", phoneNumber: "720-939-0936",email: "cfrazer@gmail.com", password: "", birthday: "09-27-1994", primaryCause: 0, profilePhoto: UIImage(named: "cassiefrazer"))

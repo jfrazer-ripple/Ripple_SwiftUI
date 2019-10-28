@@ -29,9 +29,9 @@ struct AccountCreationBirthday: View {
             .padding(.leading, 30)
             .padding(.trailing, 30)
             .offset(x: 0, y: -40)
-            NavigationLink(destination: AccountCreationBirthday(), isActive: .constant(birthdayIsValid == 1)) {
+            NavigationLink(destination: AccountCreationPasswordCreation(), isActive: .constant(birthdayIsValid == 1)) {
                 Button(action: {
-                    print("Foo")
+                    self.birthdayIsValid = 1
             }) {
                     ContinueText()
                 }
@@ -43,6 +43,7 @@ struct AccountCreationBirthday: View {
         .background(RadialGradient(gradient: Gradient(colors: [Color("RippleColorDark"), Color.black]), center: .center, startRadius: 5, endRadius: 300))
         .edgesIgnoringSafeArea(.all)
         .navigationBarTitle("Create Account", displayMode: .inline)
+        .navigationBarBackButtonHidden(true)
     }
 }
 
