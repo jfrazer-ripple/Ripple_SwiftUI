@@ -22,6 +22,9 @@ struct AccountCreationPasswordCreation: View {
     @State private var activeAlert: invalidPasswordAlert = .password
     @State private var showingAlert = false
     
+    @Binding var pageToDisplay: Int
+    
+    @ViewBuilder
     var body: some View {
         VStack() {
             Image("Ripple Icon")
@@ -52,30 +55,29 @@ struct AccountCreationPasswordCreation: View {
                 SecureFieldWithColoredBorder(color: .green, placeholderText: "Confirm Password", password: $confirmPasswordString)
                 .offset(x: 0, y: -15)
             }
-            NavigationLink(destination: AccountCreationAccountConfirmation(), isActive: .constant(firstPasswordIsValid == 1 && confirmPasswordIsValid == 1)) {
-                Button(action: {
-                    if self.firstPasswordString.count > 5 {
-                        self.firstPasswordIsValid = 1
-                    } else {
-                        self.firstPasswordIsValid = -1
-                        self.showingAlert = true
-                        self.activeAlert = .password
-                    }
-                    
-                    if self.firstPasswordIsValid == 1 {
-                        if self.firstPasswordString == self.confirmPasswordString {
-                            self.confirmPasswordIsValid = 1
-                        } else {
-                            self.confirmPasswordIsValid = -1
-                            self.showingAlert = true
-                            self.activeAlert = .confirm
-                        }
-                    }
-            }) {
-                    ContinueText()
-                .offset(x: 0, y: -15)
+            Button(action: {
+                if self.firstPasswordString.count > 5 {
+                    self.firstPasswordIsValid = 1
+                } else {
+                    self.firstPasswordIsValid = -1
+                    self.showingAlert = true
+                    self.activeAlert = .password
                 }
+                
+                if self.firstPasswordIsValid == 1 {
+                    if self.firstPasswordString == self.confirmPasswordString {
+                        self.confirmPasswordIsValid = 1
+                        self.pageToDisplay = 5
+                    } else {
+                        self.confirmPasswordIsValid = -1
+                        self.showingAlert = true
+                        self.activeAlert = .confirm
+                    }
+                }
+            }) {
+                ContinueText()
             }
+            .offset(x: 0, y: -15)
             Spacer()
         }
         .padding(.horizontal, 20)
@@ -94,8 +96,8 @@ struct AccountCreationPasswordCreation: View {
     }
 }
 
-struct AccountCreationPasswordCreation_Previews: PreviewProvider {
-    static var previews: some View {
-        AccountCreationPasswordCreation()
-    }
-}
+//struct AccountCreationPasswordCreation_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AccountCreationPasswordCreation()
+//    }
+//}

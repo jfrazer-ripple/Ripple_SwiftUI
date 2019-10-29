@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct ForgotPassword: View {
+    
+    @ViewBuilder
     var body: some View {
         Text("Forgot Password!").navigationBarTitle("Forgot Password?", displayMode: .inline)
     }

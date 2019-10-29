@@ -29,6 +29,7 @@
 		A25236DB23677F63006AFB9A /* RankingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236DA23677F63006AFB9A /* RankingsTab.swift */; };
 		A25236DD23677F87006AFB9A /* MyAccountTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236DC23677F87006AFB9A /* MyAccountTab.swift */; };
 		A25236DF2367989A006AFB9A /* HorizontalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236DE2367989A006AFB9A /* HorizontalLine.swift */; };
+		A25236E12368C130006AFB9A /* AccountCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25236E02368C130006AFB9A /* AccountCreation.swift */; };
 		A2674E882364F3E200E2316E /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2674E872364F3E200E2316E /* ContinueButton.swift */; };
 		A2ABCD942362505B005D85C5 /* LoggedIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABCD932362505B005D85C5 /* LoggedIn.swift */; };
 		A2ABCD962362566A005D85C5 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABCD952362566A005D85C5 /* LoginScreen.swift */; };
@@ -65,6 +66,7 @@
 		A25236DA23677F63006AFB9A /* RankingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingsTab.swift; sourceTree = "<group>"; };
 		A25236DC23677F87006AFB9A /* MyAccountTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccountTab.swift; sourceTree = "<group>"; };
 		A25236DE2367989A006AFB9A /* HorizontalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLine.swift; sourceTree = "<group>"; };
+		A25236E02368C130006AFB9A /* AccountCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCreation.swift; sourceTree = "<group>"; };
 		A2674E872364F3E200E2316E /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		A2ABCD932362505B005D85C5 /* LoggedIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedIn.swift; sourceTree = "<group>"; };
 		A2ABCD952362566A005D85C5 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		A21FA1742364BE4C0053FF01 /* Account Creation */ = {
 			isa = PBXGroup;
 			children = (
+				A25236E02368C130006AFB9A /* AccountCreation.swift */,
 				A21FA16C2364059C0053FF01 /* CreateAccountTermsAndConditions.swift */,
 				A21FA1752364C1080053FF01 /* AccountCreationPhoneNumOrEmail.swift */,
 				A21FA1772364CA9F0053FF01 /* AccountCreationName.swift */,
@@ -278,6 +281,7 @@
 				A238B29F2362246A0061A50C /* ContentView.swift in Sources */,
 				A21FA16D2364059C0053FF01 /* CreateAccountTermsAndConditions.swift in Sources */,
 				A2ABCD962362566A005D85C5 /* LoginScreen.swift in Sources */,
+				A25236E12368C130006AFB9A /* AccountCreation.swift in Sources */,
 				A25236DD23677F87006AFB9A /* MyAccountTab.swift in Sources */,
 				A2FA2B6E236373B400746596 /* Post.swift in Sources */,
 				A21FA16F236406610053FF01 /* ForgotPassword.swift in Sources */,

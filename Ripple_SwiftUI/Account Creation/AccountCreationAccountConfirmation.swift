@@ -14,9 +14,9 @@ struct AccountCreationAccountConfirmation: View {
     @State private var confirmationString: String = ""
     @State private var showingAlert = false
 
-    @Environment(\.presentationMode) var mode: Binding<PresentationMode>
-
+    @Binding var pageToDisplay: Int
     
+    @ViewBuilder
     var body: some View {
         VStack() {
             Image("Ripple Icon")
@@ -37,20 +37,12 @@ struct AccountCreationAccountConfirmation: View {
                 TextFieldWithColoredBorder(color: .green, placeholderText: "Confirmation Code", emailOrUsername: $confirmationString)
                 .offset(x: 0, y: -15)
             }
-            NavigationLink(destination: AccountCreationBirthday(), isActive: .constant(confirmationIsValid == 1)) {
-                Button(action: {
-                    if self.confirmationString == "000000" {
-                        self.confirmationIsValid = 1
-                        self.mode.wrappedValue.dismiss()
-                    } else {
-                        self.confirmationIsValid = -1
-                        self.showingAlert = true
-                    }
+            Button(action: {
+                self.pageToDisplay = 6
             }) {
-                    ContinueText()
-                .offset(x: 0, y: -15)
-                }
+                ContinueText()
             }
+            .offset(x: 0, y: -15)
             Spacer()
         }
         .padding(.horizontal, 20)
@@ -64,8 +56,8 @@ struct AccountCreationAccountConfirmation: View {
     }
 }
 
-struct AccountCreationAccountConfirmation_Previews: PreviewProvider {
-    static var previews: some View {
-        AccountCreationAccountConfirmation()
-    }
-}
+//struct AccountCreationAccountConfirmation_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AccountCreationAccountConfirmation()
+//    }
+//}

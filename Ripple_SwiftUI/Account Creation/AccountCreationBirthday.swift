@@ -13,6 +13,9 @@ struct AccountCreationBirthday: View {
     @State private var birthDate = Date()
     @State private var birthdayIsValid: Int = 0
 
+    @Binding var pageToDisplay: Int
+    
+    @ViewBuilder
     var body: some View {
         VStack() {
             Image("Ripple Icon")
@@ -29,12 +32,10 @@ struct AccountCreationBirthday: View {
             .padding(.leading, 30)
             .padding(.trailing, 30)
             .offset(x: 0, y: -40)
-            NavigationLink(destination: AccountCreationPasswordCreation(), isActive: .constant(birthdayIsValid == 1)) {
-                Button(action: {
-                    self.birthdayIsValid = 1
+            Button(action: {
+                self.pageToDisplay = 4
             }) {
-                    ContinueText()
-                }
+                ContinueText()
             }
             .offset(x: 0, y: -60)
             Spacer()
@@ -47,8 +48,8 @@ struct AccountCreationBirthday: View {
     }
 }
 
-struct AccountCreationBirthday_Previews: PreviewProvider {
-    static var previews: some View {
-        AccountCreationBirthday()
-    }
-}
+//struct AccountCreationBirthday_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AccountCreationBirthday()
+//    }
+//}

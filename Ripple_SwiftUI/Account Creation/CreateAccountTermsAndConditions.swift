@@ -10,6 +10,8 @@ import SwiftUI
 
 struct CreateAccountTermsAndConditions: View {
     
+    @Binding var pageToDisplay: Int
+    
     @ViewBuilder
     var body: some View {
         VStack() {
@@ -32,10 +34,10 @@ struct CreateAccountTermsAndConditions: View {
             Text("Privacy Policy")
                 .underline()
                 .foregroundColor(Color("RippleColor"))
-            NavigationLink(destination: AccountCreationPhoneNumOrEmail()) {
-                Text("Continue")
-                    .foregroundColor(.white)
-                    .padding(5)
+            Button(action: {
+                self.pageToDisplay = 1
+            }) {
+                ContinueText()
             }
             .frame(minWidth: 0, maxWidth: .infinity)
             .overlay(
@@ -52,8 +54,8 @@ struct CreateAccountTermsAndConditions: View {
     }
 }
 
-struct CreateAccount_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateAccountTermsAndConditions()
-    }
-}
+//struct CreateAccount_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CreateAccountTermsAndConditions()
+//    }
+//}

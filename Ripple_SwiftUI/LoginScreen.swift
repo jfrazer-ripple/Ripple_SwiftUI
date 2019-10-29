@@ -9,21 +9,21 @@
 import SwiftUI
 
 enum ActiveAlert {
-    case emailOrUsername, password
+    case emailOrUsername, password, accountCreated
 }
 
 struct LoginScreen: View {
     
     @State private var passwordStatus = 0
     @State private var usernameOrEmailStatus = 0
-    @State private var showingAlert = false
-    @State private var activeAlert: ActiveAlert = .emailOrUsername
-    
-    @State var emailOrUsername: String = ""
-    @State var password: String = ""
+    @State private var activeAlert: ActiveAlert = .accountCreated
+    @State private var emailOrUsername: String = ""
+    @State private var password: String = ""
+    @State var showingAlert = false
     
     @Binding var userID: Int
-    
+    @Binding var screenToDisplay: Int
+
     var body: some View {
         NavigationView {
             VStack {
@@ -60,6 +60,7 @@ struct LoginScreen: View {
                             self.activeAlert = .emailOrUsername
                             self.showingAlert.toggle()
                         } else {
+                            print("Updating UserID")
                             self.usernameOrEmailStatus = 2
                             self.passwordStatus = 2
                             self.userID = loginAttempt
@@ -76,7 +77,9 @@ struct LoginScreen: View {
                         .stroke(Color.white, lineWidth: 2)
                     )
                     Spacer()
-                    NavigationLink(destination: CreateAccountTermsAndConditions()) {
+                    Button(action: {
+                        self.screenToDisplay = 1
+                    }) {
                         Text("Create an Account")
                             .foregroundColor(.white)
                     }
@@ -97,6 +100,8 @@ struct LoginScreen: View {
                     return Alert(title: Text("Invalid Username or Email"), message: Text("The email or username you entered isn't in our system"), dismissButton: .default(Text("Try Again")))
                 case .password:
                     return Alert(title: Text("Invalid Password"), message: Text("The password you entered is incorrect"), dismissButton: .default(Text("Try Again")))
+                case .accountCreated:
+                    return Alert(title: Text("Account Created"), message: Text("You have successfully created a Ripple account"), dismissButton: .default(Text("OK")))
                 }
             }
         }
@@ -122,8 +127,8 @@ struct LoginScreen: View {
 }
 
 
-struct LoginScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginScreen(userID: .constant(0))
-    }
-}
+//struct LoginScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoginScreen(userID: .constant(0), )
+//    }
+//}

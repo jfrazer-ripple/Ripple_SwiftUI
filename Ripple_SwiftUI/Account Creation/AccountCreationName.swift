@@ -22,6 +22,8 @@ struct AccountCreationName: View {
     @State private var activeAlert: invalidNameAlert = .first
     @State private var showingAlert = false
 
+    @Binding var pageToDisplay: Int
+    
     var body: some View {
         VStack() {
             Image("Ripple Icon")
@@ -50,32 +52,32 @@ struct AccountCreationName: View {
 
             }
             .offset(x: 0, y: -15)
-            NavigationLink(destination: AccountCreationBirthday(), isActive: .constant(self.firstNameValid == 1 && self.lastNameValid == 1)) {
-                Button(action: {
-                    if self.firstName.count == 0 {
-                        self.firstNameValid = -1
-                        self.activeAlert = .first
-                    } else {
-                        self.firstNameValid = 1
-                    }
-                    if self.lastName.count == 0 {
-                        self.lastNameValid = -1
-                        if self.firstNameValid == -1 {
-                            self.activeAlert = .both
-                        } else {
-                            self.activeAlert = .last
-                        }
-                    } else {
-                        self.lastNameValid = 1
-                    }
-                    if self.firstNameValid == -1 || self.lastNameValid == -1 {
-                        self.showingAlert.toggle()
-                    }
-            }) {
-                    ContinueText()
+            Button(action: {
+                if self.firstName.count == 0 {
+                    self.firstNameValid = -1
+                    self.activeAlert = .first
+                } else {
+                    self.firstNameValid = 1
                 }
+                if self.lastName.count == 0 {
+                    self.lastNameValid = -1
+                    if self.firstNameValid == -1 {
+                        self.activeAlert = .both
+                    } else {
+                        self.activeAlert = .last
+                    }
+                } else {
+                    self.lastNameValid = 1
+                }
+                if self.firstNameValid == -1 || self.lastNameValid == -1 {
+                    self.showingAlert.toggle()
+                } else {
+                    self.pageToDisplay = 3
+                }
+            }) {
+                ContinueText()
             }
-            .offset(x: 0, y: -10)
+            .offset(x: 0, y: -15)
             Spacer()
         }
         .padding(.horizontal, 20)
@@ -97,8 +99,8 @@ struct AccountCreationName: View {
     
 }
 
-struct AccountCreationName_Previews: PreviewProvider {
-    static var previews: some View {
-        AccountCreationName()
-    }
-}
+//struct AccountCreationName_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AccountCreationName()
+//    }
+//}

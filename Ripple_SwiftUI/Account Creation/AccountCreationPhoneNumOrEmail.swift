@@ -20,6 +20,8 @@ struct AccountCreationPhoneNumOrEmail: View {
     @State private var activeAlert: PhoneNumberOrEmailAlert = .phone
     @State private var showingAlert = false
 
+    @Binding var pageToDisplay: Int
+    
     @ViewBuilder
     var body: some View {
         VStack() {
@@ -70,29 +72,28 @@ struct AccountCreationPhoneNumOrEmail: View {
                    TextFieldWithColoredBorder(color: .green, placeholderText: "Phone Number", emailOrUsername: $emailOrPhoneNumber)
                }
             }
-            
-            NavigationLink(destination: AccountCreationName(), isActive: .constant(self.phoneNumberOrEmailValid == 1)) {
-                Button(action: {
-                    if self.emailPreferred {
-                        if self.isValidEmail(emailStr: self.emailOrPhoneNumber) == -1 {
-                            self.phoneNumberOrEmailValid = -1
-                            self.showingAlert = true
-                            self.activeAlert = .email
-                        } else {
-                            self.phoneNumberOrEmailValid = 1
-                        }
+            Button(action: {
+                if self.emailPreferred {
+                    if self.isValidEmail(emailStr: self.emailOrPhoneNumber) == -1 {
+                        self.phoneNumberOrEmailValid = -1
+                        self.showingAlert = true
+                        self.activeAlert = .email
                     } else {
-                        if self.isValidPhoneNumber(phoneStr: self.emailOrPhoneNumber) == -1 {
-                            self.phoneNumberOrEmailValid = -1
-                            self.showingAlert = true
-                            self.activeAlert = .phone
-                        } else {
-                            self.phoneNumberOrEmailValid = 1
-                        }
+                        self.phoneNumberOrEmailValid = 1
+                        self.pageToDisplay = 2
                     }
-                }) {
-                        ContinueText()
+                } else {
+                    if self.isValidPhoneNumber(phoneStr: self.emailOrPhoneNumber) == -1 {
+                        self.phoneNumberOrEmailValid = -1
+                        self.showingAlert = true
+                        self.activeAlert = .phone
+                    } else {
+                        self.phoneNumberOrEmailValid = 1
+                        self.pageToDisplay = 2
                     }
+                }
+            }) {
+                    ContinueText()
                 }
             Spacer()
         }
@@ -141,8 +142,8 @@ struct AccountCreationPhoneNumOrEmail: View {
     }
 }
 
-struct AccountCreationPhoneNumOrEmail_Previews: PreviewProvider {
-    static var previews: some View {
-        AccountCreationPhoneNumOrEmail()
-    }
-}
+//struct AccountCreationPhoneNumOrEmail_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AccountCreationPhoneNumOrEmail()
+//    }
+//}
